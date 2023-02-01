@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Edensor Free";
-    src: url(../../../../assets/font/Edensor-Free.otf);
+    src: url(../../../assets/font/Edensor-Free.otf);
 }
 
 *{
@@ -106,8 +106,8 @@ section .AddUser{
 }
 
 section .AddUser #myBtn{
-    width: 180px;
-    height: 40px;
+    width: 190px;
+    height: 60px;
     text-transform: uppercase;
     font-weight: bold;
     background:white;
@@ -218,10 +218,6 @@ th{
     border-top: none;
 }
 
-th:nth-child(5){
-    width: 280px;
-}
-
 tbody tr:nth-child(even){
     background-color: #f3f3f3;
 }
@@ -289,27 +285,13 @@ nav .menuburger{
     }
 }
 
-
 @media screen and (max-width: 1050px){
     nav .middle .btn{
         padding: 10px 40px;
     }
 }
 
-@media screen and (max-width: 800px){
-
-    nav .menuburger{
-        display: block;
-    }
-
-    nav .middle, .deconnexion{
-        display: none;
-    }
-
-    .show-sidebar {
-        transform: translateX(0%);
-    }
-
+@media screen and (max-width: 860px){
     thead{
         display: none;
     }
@@ -329,7 +311,7 @@ nav .menuburger{
 
     .table-style td{
         text-align: right;
-        padding-left: 45%;
+        padding-left: 50%;
         position: relative;
         text-align: right;
     }
@@ -347,9 +329,31 @@ nav .menuburger{
     }
 }
 
+@media screen and (max-width: 800px){
+
+    nav .menuburger{
+        display: block;
+    }
+
+    nav .middle, .deconnexion{
+        display: none;
+    }
+
+    .show-sidebar {
+        transform: translateX(0%);
+    }
+}
+
 @media screen and (max-width: 640px){
 
     form input{
         width: 200px;
+    }
+}
+
+@media screen and (max-width: 415px){
+
+    form input{
+        width: 130px;
     }
 }

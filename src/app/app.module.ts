@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientComponent } from './components/client/client/client.component';
-import { ProduitComponent } from './components/produit/produit/produit.component';
-import { ConnexionComponent } from './components/connexion/connexion/connexion.component';
-import { CommandeComponent } from './components/commande/commande/commande.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { DxDataGridModule } from 'devextreme-angular';
+import { ClientComponent } from './components/client/client.component';
+import { ProduitComponent } from './components/produit/produit.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
+import { CommandeComponent } from './components/commande/commande.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { CommandeComponent } from './components/commande/commande/commande.compo
     ClientComponent,
     ProduitComponent,
     ConnexionComponent,
-    CommandeComponent
+    CommandeComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DxDataGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
