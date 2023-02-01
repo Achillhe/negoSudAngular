@@ -1,17 +1,13 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ClientService, Customer } from './client.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.scss']
 })
-export class ClientComponent {
-  customers: Customer[];
-
-  constructor(service: ClientService) {
-    this.customers = service.getCustomers();
+export class ClientComponent implements OnInit {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
+ 
 }
-
-

@@ -3,28 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserFormComponent } from './components/user-form/user-form.component';
 import { DxDataGridModule } from 'devextreme-angular';
-import { ClientComponent } from './components/client/client.component';
 import { ProduitComponent } from './components/produit/produit.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { CommandeComponent } from './components/commande/commande.component';
+import { ClientComponent } from './components/client/client.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ClientService } from './services/client.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientComponent,
     ProduitComponent,
     ConnexionComponent,
     CommandeComponent,
-    UserFormComponent
+    ClientComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DxDataGridModule
+    DxDataGridModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

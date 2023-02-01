@@ -1,175 +1,22 @@
-<div class="sidebar">
-    <ul>
-        <a href="gestionStock.html">
-            <li>Gestion stocks</li>
-        </a>
-        <a href="gestionUsers.html">
-            <li>Gestion utilisateurs</li>
-        </a>
-        <a href="order.html">
-            <li>Nouvelle commande</li>
-        </a>
-        <a href="accueil.html">
-            <li>Se déconnecter</li>
-        </a>
-    </ul>
-</div>
-<nav>
-    <div class="logo">
-        <h1>Negosud</h1>
-    </div>
-    <div class="middle">
-        <ul>
-            <a href="gestionStock.html" class="btn1">
-                <li class="btn">Gestion stocks</li>
-            </a>
-            <a href="gestionUsers.html" class="btn1">
-                <li class="btn">Gestion clients</li>
-            </a>
-            <a href="order.html" class="btn1">
-                <li class="btn">Nouvelle commande</li>
-            </a>
-        </ul>
-    </div>
-    <div class="deconnexion">
-        <ul>
-            <a href="accueil.html" class="btn1">
-                <li class="btn btn1">Se déconnecter</li>
-            </a>
-        </ul>
-    </div>
-    <img src="../menuBurger.png" alt="" class="menuburger">
-</nav>
+<app-navbar></app-navbar>
+<dx-data-grid class="tab" id="gridContainer" [dataSource]="products" keyExpr="id" [showBorders]="true"
+            (onRowUpdating)="updateProduct($event)" (onRowInserting)="addProduct($event)" (onRowRemoving)="removeProduct($event)">
+            
+            <dxo-search-panel [visible]="true"></dxo-search-panel>
+            <dxo-paging [pageSize]="10"> </dxo-paging>
+            <dxo-pager [visible]="true" [allowedPageSizes]="allowedPageSizes" [displayMode]="displayMode"
+                [showPageSizeSelector]="showPageSizeSelector" [showInfo]="showInfo"
+                [showNavigationButtons]="showNavButtons">
+            </dxo-pager>
+            <dxo-editing mode="form" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true">
+            </dxo-editing>
 
-<section>
-    <div class="titre">
-        <h1>Gestion Stocks</h1>
-    </div>
+            <dxi-column dataField="type" caption="Type"></dxi-column>
+            <dxi-column dataField="nom_de_domaine" caption="Nom de domaine"></dxi-column>
+            <dxi-column dataField="reference" caption="Réfèrence"></dxi-column>
+            <dxi-column dataField="quantite" caption="Quantité"></dxi-column>
+            <dxi-column dataField="prix" caption="Prix"></dxi-column>
+            <dxi-column dataField="volume" caption="Volume"></dxi-column>
+            <dxi-column dataField="millesime" caption="Millésime"></dxi-column>
 
-    <div class="AddUser">
-        <button id="myBtn">Ajouter nouveau produit</button>
-
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form action="" method="">
-                    <div class="tab">
-                        <div class="TabGauche">
-                            <input type="text" size="30px" placeholder="Nom de domaine" autocomplete="off"
-                                required /><br />
-                                <input type="text" size="30px" placeholder="Type" autocomplete="off"
-                                required /><br />
-                            <input type="text" size="30px" placeholder="Millésime" autocomplete="off"
-                                required /><br />
-                            <input type="email" size="30px" placeholder="Volume" autocomplete="off"
-                                required /><br />
-                        </div>
-                        <div class="TabDroite">
-                            <input type="tel" size="30px" placeholder="Prix" autocomplete="off" required /><br />
-                            <input type="text" size="30px" placeholder="Quantité" autocomplete="off"
-                                required /><br />
-                            <input type="text" size="30px" placeholder="Référence" autocomplete="off"
-                                required /><br />
-                        </div>
-                    </div>
-                    <input type="submit" name="envoi" value="Ajouter nouveau produit">
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="TabUser">
-        <div class="input">
-            <input type="text" id="searchInput" placeholder="Recherche par nom de domaine">
-        </div>
-        <div class="test">
-            <table class="table-style">
-                <thead>
-                    <tr>
-                        <th>Nom du domaine</th>
-                        <th>Type</th>
-                        <th>Millésime</th>
-                        <th>Volume</th>
-                        <th>Prix</th>
-                        <th>Quantité</th>
-                        <th>Référence</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Nom du domaine">Tariquet</td>
-                        <td data-label="Type">Blanc</td>
-                        <td data-label="Millésime">2015</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">25€</td>
-                        <td data-label="Quantité">4</td>
-                        <td data-label="Référence">25FH568M</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nom du domaine">Margaux</td>
-                        <td data-label="Type">Rouge</td>
-                        <td data-label="Millésime">2010</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">750€</td>
-                        <td data-label="Quantité">2</td>
-                        <td data-label="Référence">26HMD58D</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nom du domaine">Santenay</td>
-                        <td data-label="Type">Rouge</td>
-                        <td data-label="Millésime">2006</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">250€</td>
-                        <td data-label="Quantité">5</td>
-                        <td data-label="Référence">56GRE69D</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nom du domaine">Chardonnay</td>
-                        <td data-label="Type">Blanc</td>
-                        <td data-label="Millésime">2018</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">32€</td>
-                        <td data-label="Quantité">9</td>
-                        <td data-label="Référence">58DEK563</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nom du domaine">Belmont</td>
-                        <td data-label="Type">Rosé</td>
-                        <td data-label="Millésime">2018</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">65€</td>
-                        <td data-label="Quantité">4</td>
-                        <td data-label="Référence">78DMK663</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nom du domaine">Embiez</td>
-                        <td data-label="Type">Rouge</td>
-                        <td data-label="Millésime">2019</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">12€</td>
-                        <td data-label="Quantité">6</td>
-                        <td data-label="Référence">02FPK243</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nom du domaine">Embiez</td>
-                        <td data-label="Type">Rosé</td>
-                        <td data-label="Millésime">2016</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">18€</td>
-                        <td data-label="Quantité">5</td>
-                        <td data-label="Référence">69ZAP245</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Nom du domaine">Coteaux Blancs </td>
-                        <td data-label="Type">Blanc</td>
-                        <td data-label="Millésime">2015</td>
-                        <td data-label="Volume">75cl</td>
-                        <td data-label="Prix">80€</td>
-                        <td data-label="Quantité">5</td>
-                        <td data-label="Référence">78MAP020</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
+        </dx-data-grid>
