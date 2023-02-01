@@ -1,34 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/data/product.model';
-
+import { Client } from 'src/app/data/client.model';
 
 
 @Injectable({
     providedIn:'root'
 })
+
 export class ClientService {
 
     constructor(private http: HttpClient){}
-    public productEndPoint = "https://localhost:7141/api/Produit"
-    public productUpdateEndPoint = "https://localhost:7141/api/Produit/" 
-    public productAddEndPoint = "https://localhost:7141/api/Produit"
-    public productRemoveEndPoint = "https://localhost:7141/api/Produit/"
+    public clientEndPoint = "https://localhost:7141/api/Client"
+    public clientUpdateEndPoint = "https://localhost:7141/api/Client/" 
+    public clientAddEndPoint = "https://localhost:7141/api/Client"
+    public clientRemoveEndPoint = "https://localhost:7141/api/Client/"
   
-    getProduct():Observable<Product[]> {
-        return this.http.get<Product[]>(this.productEndPoint);
+    getClient():Observable<Client[]> {
+        return this.http.get<Client[]>(this.clientEndPoint);
     }
 
-    updateProduct(id:number, product:Product){
-        return this.http.put(this.productUpdateEndPoint+id, product);
+    updateClient(id:number, client:Client){
+        return this.http.put(this.clientUpdateEndPoint+id, client);
     }
 
-    addProduct(product: Product){
-        return this.http.post<Product>(this.productAddEndPoint, product);
+    addClient(client: Client){
+        return this.http.post<Client>(this.clientAddEndPoint, client);
     }
 
-    removeProduct(id:number){
-        return this.http.delete(this.productUpdateEndPoint+id);
+    removeClient(id:number){
+        return this.http.delete(this.clientUpdateEndPoint+id);
     }
 }

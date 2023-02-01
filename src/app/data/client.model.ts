@@ -1,4 +1,4 @@
-export class Product {
+export class Client {
     public id:string;
     public nom:string;
     public prenom:string;

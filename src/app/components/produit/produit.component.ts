@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/data/product.model';
 import notify from 'devextreme/ui/notify';
-import { ClientService } from 'src/app/services/client.service';
+import { ProduitService } from 'src/app/services/produit.service';
 
 @Component({
   selector: 'app-product',
@@ -22,7 +22,7 @@ export class ProduitComponent implements OnInit {
 
   showNavButtons = true;
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ProduitService) {
     
   }
   updateProduct(event){
@@ -39,7 +39,7 @@ export class ProduitComponent implements OnInit {
     product.volume = event.newData.volume == undefined ? product.type : event.newData.volume
   
     this.clientService.updateProduct(event.key, product).subscribe(resulat => {
-      notify("Warning message", "success", 500);
+      notify("Produit correctement modifié", "success", 500);
     
     });
   }
@@ -47,14 +47,14 @@ export class ProduitComponent implements OnInit {
   addProduct(event){
     console.log("new product", event);
     this.clientService.addProduct(event.data).subscribe(resulat => {
-      notify("Warning message", "success", 500);
+      notify("Produit correctement ajouté", "success", 500);
     });
   }
 
   removeProduct(event){
     console.log("remove product", event);
     this.clientService.removeProduct(event.data.id).subscribe(resulat => {
-      notify("Produit supprimé", "success", 500);
+      notify("Produit correctement supprimé", "success", 500);
     });
   }
 

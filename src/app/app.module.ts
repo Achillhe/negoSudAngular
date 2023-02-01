@@ -11,6 +11,7 @@ import { ClientComponent } from './components/client/client.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ClientService } from './services/client.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProduitService } from './services/produit.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HttpClientModule
 
   ],
-  providers: [ClientService],
+  providers: [ClientService, ProduitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
