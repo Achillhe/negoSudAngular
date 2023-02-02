@@ -33,7 +33,7 @@ export class FournisseurComponent implements OnInit{
   
     fournisseur.nom = event.newData.nom == undefined ? fournisseur.nom : event.newData.nom
     fournisseur.email = event.newData.email == undefined ? fournisseur.email : event.newData.email
-    fournisseur.codePostal= event.newData.codePostal == undefined ? fournisseur.codePostal : event.newData.codePostal
+    fournisseur.code_postal= event.newData.code_postal == undefined ? fournisseur.code_postal : event.newData.code_postal
     fournisseur.pays = event.newData.pays == undefined ? fournisseur.pays : event.newData.pays
     fournisseur.tel = event.newData.tel == undefined ? fournisseur.tel : event.newData.tel
     fournisseur.siret = event.newData.siret == undefined ? fournisseur.siret : event.newData.siret
