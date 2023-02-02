@@ -59,7 +59,9 @@ export class ClientComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.clientService.getClient().subscribe(resultat => {
+      this.clients = resultat;
+     })
   }
  
 }

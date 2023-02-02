@@ -39,7 +39,7 @@ nav .middle .btn{
     background:white;
     color: #a42424;
     font-size: 14px;
-    padding: 17px 80px;
+    padding: 10px 40px;
     cursor: pointer;
     text-align: center;
 }
@@ -109,12 +109,6 @@ nav .menuburger{
 }
 
 @media screen and (max-width: 1050px){
-    nav .middle .btn{
-        padding: 10px 40px;
-    }
-}
-
-@media screen and (max-width: 800px){
 
     nav .menuburger{
         display: block;

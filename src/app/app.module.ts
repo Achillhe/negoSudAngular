@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ClientService } from './services/client.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProduitService } from './services/produit.service';
+import { FournisseurComponent } from './components/fournisseur/fournisseur.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProduitService } from './services/produit.service';
     CommandeComponent,
     ClientComponent,
     NavbarComponent,
+    FournisseurComponent,
   ],
   imports: [
     BrowserModule,

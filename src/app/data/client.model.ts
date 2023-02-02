@@ -4,6 +4,5 @@ export class Client {
     public prenom:string;
     public tel:string;
     public email:string;
-    public password:string;
     public adresse:string;
 }
