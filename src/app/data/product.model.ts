@@ -1,10 +1,16 @@
 export class Product {
-    public id:string;
-    public type:string;
-    public nom_de_domaine:string;
+    public id:number;
+    public nomDomaine:string;
     public reference:number
     public quantite:number
     public prix:number
     public volume:number
     public millesime:number
+    public image:string
+    public sortId:number
+}
+
+export class Sort{
+    public id:number;
+    public name:string
 }

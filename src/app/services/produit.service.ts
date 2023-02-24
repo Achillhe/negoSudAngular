@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/data/product.model';
+import { Product, Sort } from 'src/app/data/product.model';
 
 
 
@@ -15,9 +15,15 @@ export class ProduitService {
     public productUpdateEndPoint = "https://localhost:7141/api/Produit/" 
     public productAddEndPoint = "https://localhost:7141/api/Produit"
     public productRemoveEndPoint = "https://localhost:7141/api/Produit/"
+
+    public typeEndPoint = "https://localhost:7141/api/Sort"
   
     getProduct():Observable<Product[]> {
         return this.http.get<Product[]>(this.productEndPoint);
+    }
+
+    getType():Observable<Sort[]> {
+        return this.http.get<Sort[]>(this.typeEndPoint);
     }
 
     updateProduct(id:number, product:Product){

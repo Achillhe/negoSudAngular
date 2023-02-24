@@ -40,7 +40,6 @@ export class ClientComponent implements OnInit {
   
     this.clientService.updateClient(event.key, client).subscribe(resulat => {
       notify("Produit correctement modifié", "success", 500);
-    
     });
   }
 

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/data/product.model';
+import { Component, OnInit} from '@angular/core';
+import { Product, Sort} from 'src/app/data/product.model';
 import notify from 'devextreme/ui/notify';
 import { ProduitService } from 'src/app/services/produit.service';
 
@@ -10,6 +10,7 @@ import { ProduitService } from 'src/app/services/produit.service';
 })
 export class ProduitComponent implements OnInit {
   products: Product[]=[]
+  sorts: Sort[]
   readonly allowedPageSizes = [5, 10, 'all'];
 
   readonly displayModes = [{ text: "Display Mode 'full'", value: 'full' }, { text: "Display Mode 'compact'", value: 'compact' }];
@@ -22,7 +23,7 @@ export class ProduitComponent implements OnInit {
 
   showNavButtons = true;
 
-  constructor(private clientService: ProduitService) {
+  constructor(private produitService: ProduitService) {
     
   }
   updateProduct(event){
@@ -30,15 +31,17 @@ export class ProduitComponent implements OnInit {
     var product =  this.products.find(x => x.id == event.key);
     console.log("mon produit",product)
   
-    product.type = event.newData.type == undefined ? product.type : event.newData.type
     product.millesime = event.newData.millesime == undefined ? product.millesime : event.newData.millesime
-    product.nom_de_domaine = event.newData.nom_de_domaine == undefined ? product.nom_de_domaine : event.newData.nom_de_domaine
+    product.nomDomaine = event.newData.nomDomaine == undefined ? product.nomDomaine : event.newData.nomDomaine
     product.prix = event.newData.prix == undefined ? product.prix : event.newData.prix
-    product.quantite = event.newData.quantite == undefined ? product.type : event.newData.quantite
-    product.reference = event.newData.reference == undefined ? product.type : event.newData.reference
-    product.volume = event.newData.volume == undefined ? product.type : event.newData.volume
+    product.quantite = event.newData.quantite == undefined ? product.quantite : event.newData.quantite
+    product.reference = event.newData.reference == undefined ? product.reference : event.newData.reference
+    product.volume = event.newData.volume == undefined ? product.volume : event.newData.volume
+    product.image = event.newData.image == undefined ? product.image : event.newData.image
+
+    product.sortId = event.newData.sortId == undefined ? product.sortId : event.newData.sortId
   
-    this.clientService.updateProduct(event.key, product).subscribe(resulat => {
+    this.produitService.updateProduct(event.key, product).subscribe(resulat => {
       notify("Produit correctement modifié", "success", 500);
     
     });
@@ -46,21 +49,24 @@ export class ProduitComponent implements OnInit {
 
   addProduct(event){
     console.log("new product", event);
-    this.clientService.addProduct(event.data).subscribe(resulat => {
+    this.produitService.addProduct(event.data).subscribe(resulat => {
       notify("Produit correctement ajouté", "success", 500);
     });
   }
 
   removeProduct(event){
     console.log("remove product", event);
-    this.clientService.removeProduct(event.data.id).subscribe(resulat => {
+    this.produitService.removeProduct(event.data.id).subscribe(resulat => {
       notify("Produit correctement supprimé", "success", 500);
     });
   }
 
   ngOnInit(): void {
-   this.clientService.getProduct().subscribe(resultat => {
+   this.produitService.getProduct().subscribe(resultat => {
     this.products = resultat;
-   })
+  });
+   this.produitService.getType().subscribe(resultat => {
+    this.sorts = resultat;
+  });
   }
 }
